@@ -19,7 +19,7 @@
       font-weight: bold;
     }
 
-    /* Garde position absolue du logo à droite sur desktop */
+    /* Positionnement logo à droite sur desktop */
     .logo-right {
       position: absolute;
       right: 0;
@@ -32,10 +32,14 @@
       display: block;
     }
 
-    /* Réduction taille logo uniquement sur mobile */
+    /* Adaptations pour mobile */
     @media (max-width: 768px) {
       .logo-right img {
-        height: 60px;
+        height: 60px;       /* Réduction taille logo */
+      }
+      .logo-right {
+        top: 20%;           /* Remonter le logo */
+        transform: translateY(0);
       }
     }
   </style>
