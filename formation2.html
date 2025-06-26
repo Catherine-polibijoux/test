@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poli Bijoux - Pré-poli</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(200deg, black 0%, #b0b0b0 150%);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    nav ul li a.active {
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #d4af37;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      color: #d4af37;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container" style="position: relative;">
+      <div class="logo">
+        <a href="index.html">Poli Bijoux</a>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="presentation.html">Présentation</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="formations.html" class="active">Formations</a></li>
+          <li><a href="audit.html">Audit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="en/index.html" class="lang-link">EN</a></li>
+          <li><a href="es/index.html" class="lang-link">ES</a></li>
+        </ul>
+      </nav>
+      <div class="logo-right" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+        <a href="index.html" aria-label="Logo Poli Bijoux">
+          <img src="assets/image/logo.jpg" alt="Logo Poli Bijoux" style="height: 100px; display: block;" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Pré-poli</h1>
+
+    <!-- Lien contact pré-rempli -->
+    <p style="text-align: center; font-size: 0.9rem; font-family: Arial, sans-serif; margin-top: 10px; margin-bottom: 30px;">
+      <a 
+        href="contact.html?sujet=Formations&message=Objet%20:%20Pr%C3%A9-poli" 
+        style="color: #fff; text-decoration: underline; font-style: italic;">
+        Vous souhaitez en savoir plus sur cette formation ? Contactez-moi ici.
+      </a>
+    </p>
+
+    <h2>Objectifs :</h2>
+    <p>
+      Comprendre les techniques et outils du pré-poli, première étape essentielle dans le processus de polissage pour obtenir une surface uniforme.
+    </p>
+
+    <h2>Contenus de la formation :</h2>
+    <p>
+      - Techniques de limage et émerisage<br>
+      - Choix des abrasifs et brosses<br>
+      - Préparation de surface avant le poli de finition<br>
+      - Démonstration et exercices pratiques
+    </p>
+
+    <h2>Durée de la formation :</h2>
+    <p>
+      1 journée (7 heures)
+    </p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Contact : +33 6 61 89 67 13 |
+        <a href="mailto:polibijoux69@gmail.com" style="color:#0af;">polibijoux69@gmail.com</a> |
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color:#0af;">LinkedIn</a> |
+        <a href="confidentialite.html" style="color:#ccc;">Politique de confidentialité</a> |
+        <a href="mentions.html" style="color:#ccc;">Mentions légales</a>
+      </p>
+      <p>&copy; 2025 Poli Bijoux. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Bannière Cookies -->
+  <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #000; color: #fff; padding: 15px 20px; text-align: center; font-size: 0.9rem; z-index: 1000;">
+    Ce site utilise des cookies pour améliorer votre expérience.
+    <button id="accept-cookies" style="background-color: #0af; color: #000; border: none; padding: 8px 15px; border-radius: 12px; cursor: pointer; margin-left: 15px;">Accepter</button>
+  </div>
+
+  <script>
+    // Activer le lien Formations sur toutes les pages liées
+    const navLinks = document.querySelectorAll("#main-nav a");
+    const currentPage = window.location.pathname.split("/").pop();
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === "formations.html" && currentPage.startsWith("formation")) {
+        link.classList.add("active");
+      } else if (href.endsWith(currentPage)) {
+        link.classList.add("active");
+      }
+    });
+
+    // Gestion des cookies
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    }
+
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+      }, '');
+    }
+
+    window.addEventListener('load', () => {
+      const consent = getCookie('cookie_consent');
+      const banner = document.getElementById('cookie-banner');
+      if (consent === 'true') {
+        banner.style.display = 'none';
+      } else {
+        banner.style.display = 'block';
+      }
+
+      document.getElementById('accept-cookies').addEventListener('click', () => {
+        setCookie('cookie_consent', 'true', 365);
+        banner.style.display = 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

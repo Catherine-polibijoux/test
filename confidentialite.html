@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Politique de confidentialité - Poli Bijoux</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #000;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    a {
+      color: #0af;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Politique de confidentialité</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <p>Dernière mise à jour : 18 juin 2025</p>
+
+    <h2>1. Introduction</h2>
+    <p>
+      Chez <strong>Poli Bijoux</strong>, EURL immatriculée au RCS sous le numéro SIRET <strong>839 612 603</strong>, nous accordons une grande importance à la confidentialité de vos données personnelles. Cette politique vous informe sur les données que nous collectons, leur usage, et vos droits, conformément au Règlement Général sur la Protection des Données (RGPD).
+    </p>
+
+    <h2>2. Données collectées</h2>
+    <p>Nous collectons uniquement les données strictement nécessaires :</p>
+    <ul>
+      <li>Adresse IP (via les cookies techniques ou analytiques, si activés)</li>
+      <li>Données envoyées via le formulaire de contact (nom, email, message)</li>
+    </ul>
+
+    <h2>3. Utilisation des cookies</h2>
+    <p>
+      Ce site utilise des cookies afin d’améliorer votre expérience utilisateur. Vous pouvez accepter ou refuser les cookies via la bannière qui s’affiche lors de votre première visite. Seuls les cookies nécessaires au fonctionnement du site sont activés par défaut.
+    </p>
+
+    <h2>4. Finalité des traitements</h2>
+    <ul>
+      <li>Amélioration de l'expérience utilisateur et de la navigation</li>
+      <li>Réponse aux messages envoyés via le formulaire de contact</li>
+      <li>Mesures statistiques anonymes (si des outils d’analyse sont activés)</li>
+    </ul>
+
+    <h2>5. Destinataires des données</h2>
+    <p>
+      Les données personnelles collectées sont exclusivement traitées par <strong>Poli Bijoux</strong>. Aucune donnée n’est vendue, louée ou transmise à des tiers, sauf obligation légale.
+    </p>
+
+    <h2>6. Durée de conservation</h2>
+    <p>
+      Les données collectées sont conservées pour une durée maximale de 12 mois, sauf obligation légale contraire ou demande expresse de suppression de votre part.
+    </p>
+
+    <h2>7. Vos droits</h2>
+    <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+    <ul>
+      <li>Droit d’accès à vos données</li>
+      <li>Droit de rectification en cas d’erreur</li>
+      <li>Droit à l’effacement (droit à l’oubli)</li>
+      <li>Droit à la limitation ou à l’opposition au traitement</li>
+      <li>Droit de retrait de votre consentement à tout moment</li>
+    </ul>
+    <p>
+      Pour exercer vos droits, vous pouvez nous contacter à tout moment par email : <a href="mailto:polibijoux69@gmail.com">polibijoux69@gmail.com</a>
+    </p>
+
+    <h2>8. Contact</h2>
+    <p>
+      Pour toute question concernant cette politique ou l’utilisation de vos données personnelles, veuillez nous contacter à l’adresse suivante :
+      <a href="mailto:polibijoux69@gmail.com">polibijoux69@gmail.com</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <a href="index.html">Retour à l'accueil</a> |
+        <a href="mentions.html">Mentions légales</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bannière Cookies -->
+  <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #000; color: #fff; padding: 15px 20px; text-align: center; font-size: 0.9rem; z-index: 1000;">
+    Ce site utilise des cookies pour améliorer votre expérience. 
+    <button id="accept-cookies" style="background-color: #0af; color: #000; border: none; padding: 8px 15px; border-radius: 12px; cursor: pointer; margin-left: 15px;">Accepter</button>
+  </div>
+
+  <script>
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    }
+
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+      }, '');
+    }
+
+    window.addEventListener('load', () => {
+      const consent = getCookie('cookie_consent');
+      const banner = document.getElementById('cookie-banner');
+
+      if (consent === 'true') {
+        banner.style.display = 'none';
+      }
+
+      document.getElementById('accept-cookies').addEventListener('click', () => {
+        setCookie('cookie_consent', 'true', 365);
+        banner.style.display = 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

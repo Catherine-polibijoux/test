@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poli Bijoux - Accueil</title>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-image: url('assets/image/image1.jpg');
+    }
+
+    /* Lien actif dans le menu */
+    nav ul li a.active {
+      color: #d4af37;
+      font-weight: bold;
+    }
+
+    /* Garde position absolue du logo à droite sur desktop */
+    .logo-right {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .logo-right img {
+      height: 100px;
+      display: block;
+    }
+
+    /* --- MOBILE --- */
+    @media (max-width: 768px) {
+      /* Le conteneur header reste comme avant (pas de flex modifié) */
+
+      /* Menu devient vertical (colonne) */
+      nav#main-nav ul {
+        display: block !important; /* Force block pour annuler tout flex éventuel */
+        padding-left: 0;
+      }
+
+      nav#main-nav ul li {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      nav#main-nav ul li a {
+        display: inline-block;
+      }
+
+      /* Logo à droite en haut, plus petit, position absolue */
+      .logo-right {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        transform: none;
+      }
+
+      .logo-right img {
+        height: 70px;
+      }
+
+      /* Texte "Poli Bijoux" plus petit */
+      .logo a {
+        font-family: 'Great Vibes', cursive;
+        font-size: 1.5rem;
+        margin: 0;
+      }
+
+      /* Ajout d’un padding à header pour éviter que le menu soit caché par le logo */
+      header .container {
+        padding-right: 110px;
+        position: relative;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header et Navigation -->
+  <header>
+    <div class="container" style="position: relative;">
+      <div class="logo">
+        <a href="index.html" class="active">Poli Bijoux</a>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="presentation.html">Présentation</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="audit.html">Audit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="en/index.html" class="lang-link">EN</a></li>
+          <li><a href="es/index.html" class="lang-link">ES</a></li>
+        </ul>
+      </nav>
+      <div class="logo-right" aria-label="Logo Poli Bijoux">
+        <a href="index.html">
+          <img src="assets/image/logo.jpg" alt="Logo Poli Bijoux" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu principal -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <!-- Contenu d'accueil -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Bannière Cookies -->
+  <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #000; color: #fff; padding: 15px 20px; text-align: center; font-size: 0.9rem; z-index: 1000;">
+    Ce site utilise des cookies pour améliorer votre expérience.
+    <button id="accept-cookies" style="background-color: #0af; color: #000; border: none; padding: 8px 15px; border-radius: 12px; cursor: pointer; margin-left: 15px;">Accepter</button>
+  </div>
+
+  <!-- Script : gestion cookies + lien actif -->
+  <script>
+    // Gestion lien actif : comparer uniquement le chemin complet (sans slash final)
+    const currentPath = window.location.pathname.replace(/\/$/, '');
+    const navLinks = document.querySelectorAll("#main-nav a");
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href").replace(/\/$/, '');
+
+      if (href === currentPath) {
+        link.classList.add("active");
+      }
+    });
+
+    // Fonction pour créer un cookie
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    }
+
+    // Fonction pour lire un cookie
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+      }, '');
+    }
+
+    // Afficher ou cacher la bannière selon cookie
+    window.addEventListener('load', () => {
+      const consent = getCookie('cookie_consent');
+      const banner = document.getElementById('cookie-banner');
+
+      if (consent === 'true') {
+        banner.style.display = 'none';
+      } else {
+        banner.style.display = 'block';
+      }
+
+      document.getElementById('accept-cookies').addEventListener('click', () => {
+        setCookie('cookie_consent', 'true', 365);
+        banner.style.display = 'none';
+      });
+    });
+  </script>
+
+  <!-- Pied de page -->
+  <footer>
+    <div class="container">
+      <p>
+        Contact : +33 6 61 89 67 13 |
+        <a href="mailto:polibijoux69@gmail.com" style="color:#0af;">polibijoux69@gmail.com</a> |
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color:#0af;">LinkedIn</a> |
+        <a href="confidentialite.html" style="color:#ccc;">Politique de confidentialité</a> |
+        <a href="mentions.html" style="color:#ccc;">Mentions légales</a>
+      </p>
+      <p>&copy; 2025 Poli Bijoux. Tous droits réservés.</p>
+    </div>
+  </footer>
+</body>
+</html>

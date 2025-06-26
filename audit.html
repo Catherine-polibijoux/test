@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Poli Bijoux</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      background-image: url('assets/image/image1.jpg');
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    main.container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #000; /* cadre noir */
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-weight: normal;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form textarea,
+    form input[type="date"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      background-color: #333; /* gris foncé */
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
+
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="tel"]:focus,
+    form textarea:focus,
+    form input[type="date"]:focus {
+      background-color: #444;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .consent {
+      margin-bottom: 20px;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .consent label {
+      font-weight: normal;
+      color: #ccc;
+    }
+
+    .consent a {
+      color: #0af;
+      text-decoration: underline;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background-color: #0af;
+      border: none;
+      border-radius: 12px;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #08c;
+      color: #fff;
+    }
+
+    /* Lien actif dans le menu */
+    nav ul li a.active {
+      color: #d4af37;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container" style="position: relative;">
+      <div class="logo">
+        <a href="index.html">Poli Bijoux</a>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="presentation.html">Présentation</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="formations.html">Formations</a></li>
+          <li><a href="audit.html" class="active">Audit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="en/index.html" class="lang-link">EN</a></li>
+          <li><a href="es/index.html" class="lang-link">ES</a></li>
+        </ul>
+      </nav>
+      <div class="logo-right" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+        <a href="index.html" aria-label="Logo Poli Bijoux">
+          <img src="assets/image/logo.jpg" alt="Logo Poli Bijoux" style="height: 100px; display: block;" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Prestation d'Audit</h1>
+    <form id="contact-form" action="https://formspree.io/f/xyzjdpdp" method="POST" novalidate>
+      <label for="nom">Nom <span style="color:#f33;">*</span> :</label>
+      <input type="text" id="nom" name="nom" required />
+
+      <label for="prenom">Prénom <span style="color:#f33;">*</span> :</label>
+      <input type="text" id="prenom" name="prenom" required />
+
+      <label for="email">Email <span style="color:#f33;">*</span> :</label>
+      <input type="email" id="email" name="_replyto" required />
+
+      <label for="telephone">Téléphone :</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="(optionnel)" />
+
+      <label for="date">Date souhaitée<span style="color:#f33;">*</span> :</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="message">Description du sujet<span style="color:#f33;">*</span> :</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <div class="consent">
+        <input type="checkbox" id="consent" name="consent" required />
+        <label for="consent">
+          J’accepte que mes données soient utilisées pour répondre à ma demande selon la 
+          <a href="confidentialite.html" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>.
+          <span style="color:#f33;">*</span>
+        </label>
+      </div>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Contact : +33 6 61 89 67 13 | 
+        <a href="mailto:polibijoux69@gmail.com" style="color:#0af;">polibijoux69@gmail.com</a> | 
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style="color:#0af;">LinkedIn</a> | 
+        <a href="confidentialite.html" style="color:#ccc;">Politique de confidentialité</a> | 
+        <a href="mentions.html" style="color:#ccc;">Mentions légales</a>
+      </p>
+      <p>&copy; 2025 Poli Bijoux. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      const consent = document.getElementById('consent');
+      if (!consent.checked) {
+        e.preventDefault();
+        alert('Vous devez accepter la politique de confidentialité avant de soumettre le formulaire.');
+      }
+    });
+  </script>
+
+  <!-- Bannière Cookies -->
+  <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #000; color: #fff; padding: 15px 20px; text-align: center; font-size: 0.9rem; z-index: 1000;">
+    Ce site utilise des cookies pour améliorer votre expérience. 
+    <button id="accept-cookies" style="background-color: #0af; color: #000; border: none; padding: 8px 15px; border-radius: 12px; cursor: pointer; margin-left: 15px;">Accepter</button>
+  </div>
+
+  <script>
+    // Gestion lien actif
+    const currentPath = window.location.pathname.replace(/\/$/, '');
+    const navLinks = document.querySelectorAll("#main-nav a");
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute("href").replace(/\/$/, '');
+      if (href === currentPath) {
+        link.classList.add("active");
+      }
+    });
+
+    // Fonction pour créer un cookie
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    }
+
+    // Fonction pour lire un cookie
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+      }, '');
+    }
+
+    // Afficher ou cacher la bannière selon cookie
+    window.addEventListener('load', () => {
+      const consent = getCookie('cookie_consent');
+      const banner = document.getElementById('cookie-banner');
+
+      if (consent === 'true') {
+        banner.style.display = 'none';
+      } else {
+        banner.style.display = 'block';
+      }
+
+      document.getElementById('accept-cookies').addEventListener('click', () => {
+        setCookie('cookie_consent', 'true', 365);
+        banner.style.display = 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
