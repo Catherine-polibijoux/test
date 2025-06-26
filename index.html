@@ -34,12 +34,17 @@
 
     /* --- MOBILE --- */
     @media (max-width: 768px) {
-      /* Le conteneur header reste comme avant (pas de flex modifié) */
 
-      /* Menu devient vertical (colonne) */
+      /* Menu vertical centré verticalement et horizontalement */
       nav#main-nav ul {
-        display: block !important; /* Force block pour annuler tout flex éventuel */
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
         padding-left: 0;
+        margin: 0;
+        text-align: center;
       }
 
       nav#main-nav ul li {
@@ -63,14 +68,14 @@
         height: 70px;
       }
 
-      /* Texte "Poli Bijoux" plus petit */
+      /* Texte "Poli Bijoux" agrandi uniquement sur mobile */
       .logo a {
         font-family: 'Great Vibes', cursive;
-        font-size: 1.5rem;
+        font-size: 2.5rem;
         margin: 0;
       }
 
-      /* Ajout d’un padding à header pour éviter que le menu soit caché par le logo */
+      /* Padding container pour éviter que menu soit caché par le logo */
       header .container {
         padding-right: 110px;
         position: relative;
